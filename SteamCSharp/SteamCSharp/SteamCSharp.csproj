@@ -6,8 +6,14 @@
     <Authors>Antoine Martins Pacheco</Authors>
     <Company>AMP Development</Company>
     <RepositoryUrl>https://github.com/AMPDevelopment/SteamCSharp</RepositoryUrl>
-    <RepositoryType>GitHub</RepositoryType>
-    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <RepositoryType>git</RepositoryType>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>0.1.0</Version>
+    <PackageProjectUrl>https://github.com/AMPDevelopment/SteamCSharp</PackageProjectUrl>
+    <Copyright>AMP Development</Copyright>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <Description>Unofficial Steam API Library</Description>
+    <PackageReleaseNotes>Initial release</PackageReleaseNotes>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">

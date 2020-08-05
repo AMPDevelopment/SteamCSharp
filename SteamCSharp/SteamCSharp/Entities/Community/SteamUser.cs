@@ -4,10 +4,10 @@ using Newtonsoft.Json;
 using SteamCSharp.Enums;
 using SteamCSharp.Utilities.JsonConverters;
 
-namespace SteamCSharp.Entities
+namespace SteamCSharp.Entities.Community
 {
 
-    public class SteamPlayer
+    public class SteamUser
     {
         [JsonProperty(PropertyName = "steamid", NullValueHandling = NullValueHandling.Ignore)]
         public ulong SteamId { get; set; }
@@ -19,7 +19,7 @@ namespace SteamCSharp.Entities
         public uint ProfileState { get; set; }
 
         [JsonProperty(PropertyName = "personaname", NullValueHandling = NullValueHandling.Ignore)]
-        public string Personaname { get; set; }
+        public string PersonaName { get; set; }
 
         [JsonProperty(PropertyName = "lastlogoff", NullValueHandling = NullValueHandling.Ignore)]
         [JsonConverter(typeof(UnixTimeJsonConverter))]
@@ -41,10 +41,10 @@ namespace SteamCSharp.Entities
         public string AvatarFullUrl { get; set; }
 
         [JsonProperty(PropertyName = "personastate", NullValueHandling = NullValueHandling.Ignore)]
-        public PersonasState PersonaState { get; set; }
+        public PersonaState PersonaState { get; set; }
 
         [JsonProperty(PropertyName = "realname", NullValueHandling = NullValueHandling.Ignore)]
-        public string Realname { get; set; }
+        public string RealName { get; set; }
 
         [JsonProperty(PropertyName = "primaryclanid", NullValueHandling = NullValueHandling.Ignore)]
         public string PrimaryClanId { get; set; }
@@ -69,14 +69,14 @@ namespace SteamCSharp.Entities
         public string PlayingGameId { get; set; }
     }
 
-    internal class SteamPlayerResult
+    internal class SteamUserResult
     {
-        public IList<SteamPlayer> Players { get; set; }
+        public IList<SteamUser> Players { get; set; }
     }
 
-    internal class SteamPlayerResponse
+    internal class SteamUserResponse
     {
         [JsonProperty(PropertyName = "response", NullValueHandling = NullValueHandling.Ignore)]
-        public SteamPlayerResult Result { get; set; }
+        public SteamUserResult Result { get; set; }
     }
 }

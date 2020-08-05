@@ -3,7 +3,7 @@
     /// <summary>
     /// Represents persona state.
     /// </summary>
-    public enum PersonasState
+    public enum PersonaState
     {
         /// <summary>
         /// Persona is offline.
