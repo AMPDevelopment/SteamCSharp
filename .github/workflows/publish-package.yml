@@ -15,9 +15,8 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 3.1.301
-    - name: Build
-      run: dotnet build --configuration Release --no-restore
     - name: Publish SteamCSharp to NuGet
+      id: publish_nuget
       uses: brandedoutcast/publish-nuget@v2.5.5
       with:
         PROJECT_FILE_PATH: SteamCSharp/SteamCSharp/SteamCSharp.csproj
