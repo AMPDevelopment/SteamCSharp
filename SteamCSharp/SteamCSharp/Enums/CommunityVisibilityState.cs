@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace SteamCSharp.Enums
+﻿namespace SteamCSharp.Enums
 {
     /// <summary>
     /// Represents community visibility state.

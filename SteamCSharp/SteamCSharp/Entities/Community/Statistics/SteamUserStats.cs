@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using Newtonsoft.Json;
 
 namespace SteamCSharp.Entities.Community.Statistics
 {
-    public class SteamPlayerStat
+    public class SteamUserStat
     {
         [JsonProperty("name", NullValueHandling = NullValueHandling.Ignore)]
         public string Name { get; set; }
@@ -32,7 +30,7 @@ namespace SteamCSharp.Entities.Community.Statistics
         public string GameName { get; set; }
 
         [JsonProperty("stats", NullValueHandling = NullValueHandling.Ignore)]
-        public IList<SteamPlayerStat> Stats { get; set; }
+        public IList<SteamUserStat> Stats { get; set; }
 
         [JsonProperty("achievements", NullValueHandling = NullValueHandling.Ignore)]
         public IList<SteamPlayerAchievement> Achievements { get; set; }

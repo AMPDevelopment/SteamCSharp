@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using Newtonsoft.Json;
 
 namespace SteamCSharp.Entities.Community.Statistics
 {
-    public class SteamPlayerOwnedGame
+    public class SteamUserOwnedGame
     {
         [JsonProperty("appid", NullValueHandling = NullValueHandling.Ignore)]
         public uint AppId { get; set; }
@@ -29,18 +27,18 @@ namespace SteamCSharp.Entities.Community.Statistics
         public uint? Playtime2Weeks { get; set; }
     }
 
-    public class SteamPlayerOwnedGamesResult
+    public class SteamUserOwnedGames
     {
         [JsonProperty("game_count", NullValueHandling = NullValueHandling.Ignore)]
         public uint GameCount { get; set; }
 
         [JsonProperty("games", NullValueHandling = NullValueHandling.Ignore)]
-        public IList<SteamPlayerOwnedGame> OwnedGames { get; set; }
+        public IList<SteamUserOwnedGame> OwnedGames { get; set; }
     }
 
-    internal class SteamPlayerOwnedGamesResultResponse
+    internal class SteamUserOwnedGamesResultResponse
     {
         [JsonProperty("response", NullValueHandling = NullValueHandling.Ignore)]
-        public SteamPlayerOwnedGamesResult Result { get; set; }
+        public SteamUserOwnedGames Result { get; set; }
     }
 }

@@ -6,7 +6,6 @@ using SteamCSharp.Utilities.JsonConverters;
 
 namespace SteamCSharp.Entities.Community
 {
-
     public class SteamUser
     {
         [JsonProperty(PropertyName = "steamid", NullValueHandling = NullValueHandling.Ignore)]

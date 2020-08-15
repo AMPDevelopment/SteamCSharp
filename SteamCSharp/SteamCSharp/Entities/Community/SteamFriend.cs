@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using Newtonsoft.Json;
 using SteamCSharp.Utilities.JsonConverters;
 
 namespace SteamCSharp.Entities.Community
 {
-    public class Friend
+    public class SteamFriend
     {
         [JsonProperty("steamid", NullValueHandling = NullValueHandling.Ignore)] 
         public ulong SteamId { get; set; }
@@ -19,15 +18,15 @@ namespace SteamCSharp.Entities.Community
         public DateTime FriendSince { get; set; }
     }
 
-    internal class FriendsList
+    internal class SteamFriendsResult
     {
         [JsonProperty("friends", NullValueHandling = NullValueHandling.Ignore)] 
-        public IList<Friend> Friends { get; set; }
+        public IList<SteamFriend> SteamFriends { get; set; }
     }
 
-    internal class FriendsListResponse
+    internal class SteamFriendsResponse
     {
         [JsonProperty("friendslist", NullValueHandling = NullValueHandling.Ignore)] 
-        public FriendsList Result { get; set; }
+        public SteamFriendsResult Result { get; set; }
     }
 }

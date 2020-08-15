@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using Newtonsoft.Json;
 
 namespace SteamCSharp.Entities.Community.Statistics
 {
-    public class SteamPlayerBan
+    public class SteamUserProbationStatus
     {
         [JsonProperty("SteamId", NullValueHandling = NullValueHandling.Ignore)]
         public string SteamId { get; set; }
@@ -29,9 +27,9 @@ namespace SteamCSharp.Entities.Community.Statistics
         public string EconomyBan { get; set; }
     }
 
-    internal class SteamPlayerBansContainer
+    internal class SteamUserProbationStatusResponse
     {
         [JsonProperty(PropertyName = "players", NullValueHandling = NullValueHandling.Ignore)]
-        public IList<SteamPlayerBan> SteamPlayerBans { get; set; }
+        public IList<SteamUserProbationStatus> Result { get; set; }
     }
 }
