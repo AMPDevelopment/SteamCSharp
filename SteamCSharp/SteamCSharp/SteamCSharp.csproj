@@ -32,4 +32,8 @@
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\SteamCSharp.Entities\SteamCSharp.Entities.csproj" />
+  </ItemGroup>
+
 </Project>

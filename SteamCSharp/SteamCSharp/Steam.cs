@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -8,6 +9,9 @@ using SteamCSharp.Entities.Community;
 using SteamCSharp.Entities.Community.Statistics;
 using SteamCSharp.Entities.Community.Statistics.Game;
 using SteamCSharp.Entities.Community.Statistics.User;
+using SteamCSharp.Entities.Games;
+using SteamCSharp.Entities.Statistics.Users.Games.CSGO;
+using SteamCSharp.Entities.Statistics.Users.Games.CSGO.Maps;
 
 namespace SteamCSharp
 {
@@ -163,6 +167,152 @@ namespace SteamCSharp
             var parameters = $"{AppIdParameter}{appId}{SteamIdParameter}{steamId}";
             var request = await GetAsync(SteamUserStatsUrl, GetUserStatsForGameUrl, Version2, parameters);
             return JsonConvert.DeserializeObject<SteamPlayerStatsForGameResultResponse>(request).Result;
+        }
+
+        public async Task<CounterStrikeGlobalOffensive> GetSteamUserStatsForCounterStrikeGlobalOffensiveAsync(ulong steamId)
+        {
+            var parameters = $"{AppIdParameter}730{SteamIdParameter}{steamId}";
+            var request = await GetAsync(SteamUserStatsUrl, GetUserStatsForGameUrl, Version2, parameters);
+            var result = JsonConvert.DeserializeObject<CounterStrikeGlobalOffensiveDto>(request);
+            return new CounterStrikeGlobalOffensive()
+            {
+                Maps = new List<Map>
+                {
+                    new Dust2()
+                    {
+                        TotalRounds = result.TotalRoundsDust2,
+                        TotalWins = result.TotalWinsDust2
+                    },
+                    new Dust()
+                    {
+                        TotalRounds = result.TotalRoundsDust,
+                        TotalWins = result.TotalWinsDust
+                    },
+                    new Assault()
+                    {
+                        TotalRounds = result.TotalRoundsAssault,
+                        TotalWins = result.TotalWinsAssault
+                    },
+                    new Aztec()
+                    {
+                        TotalRounds = result.TotalRoundsAztec,
+                        TotalWins = result.TotalWinsAztec
+                    },
+                    new Cobblestone()
+                    {
+                        TotalRounds = result.TotalRoundsCobblestone,
+                        TotalWins = result.TotalWinsCobblestone
+                    },
+                    new Inferno()
+                    {
+                        TotalRounds = result.TotalRoundsInferno,
+                        TotalWins = result.TotalWinsInferno
+                    },
+                    new Italy()
+                    {
+                        TotalRounds = result.TotalRoundsItaly,
+                        TotalWins = result.TotalWinsItaly
+                    },
+                    new Nuke()
+                    {
+                        TotalRounds = result.TotalRoundsNuke,
+                        TotalWins = result.TotalWinsNuke
+                    },
+                    new Office()
+                    {
+                        TotalRounds = result.TotalRoundsOffice,
+                        TotalWins = result.TotalWinsOffice
+                    },
+                    new Train()
+                    {
+                        TotalRounds = result.TotalRoundsTrain,
+                        TotalWins = result.TotalWinsTrain,
+                        MatchesWon = result.TotalMatchesWonTrain
+                    },
+                    new Lake()
+                    {
+                        TotalRounds = result.TotalRoundsLake,
+                        TotalWins = result.TotalWinsLake,
+                        MatchesWon = result.TotalMatchesWonLake
+                    },
+                    new Safehouse()
+                    {
+                        TotalRounds = result.TotalRoundsSafehouse,
+                        TotalWins = result.TotalWinsSafehouse,
+                        MatchesWon = result.TotalMatchesWonSafehouse
+                    },
+                    new Sugarcane()
+                    {
+                        TotalRounds = result.TotalRoundsSugarcane,
+                        TotalWins = result.TotalWinsSugarcane,
+                        MatchesWon = result.TotalMatchesWonSugarcane
+                    },
+                    new StMarc()
+                    {
+                        TotalRounds = result.TotalRoundsStMarc,
+                        TotalWins = result.TotalWinsStMarc,
+                        MatchesWon = result.TotalMatchesWonShortTrain
+                    },
+                    new Bank()
+                    {
+                        TotalRounds = result.TotalRoundsBank,
+                        TotalWins = result.TotalWinsBank,
+                        MatchesWon = result.TotalMatchesWonBank
+                    },
+                    new Shorttrain()
+                    {
+                        TotalRounds = result.TotalRoundsShortTrain,
+                        TotalWins = result.TotalWinsShortTrain,
+                        MatchesWon = result.TotalMatchesWonShortTrain
+                    },
+                    new Shoots()
+                    {
+                        TotalRounds = result.TotalRoundsShoots,
+                        TotalWins = result.TotalWinsShoots,
+                        MatchesWon = result.TotalMatchesWonShoots
+                    },
+                    new Baggage()
+                    {
+                        TotalRounds = result.TotalRoundsBaggage,
+                        TotalWins = result.TotalWinsBaggage,
+                        MatchesWon = result.TotalMatchesWonBaggage
+                    },
+                    new House()
+                    {
+                        TotalWins = result.TotalWinsHouse
+                    },
+                    new Monastery()
+                    {
+                        TotalRounds = result.TotalRoundsMonastery,
+                        TotalWins = result.TotalWinsMonastery
+                    },
+                    new Vertigo()
+                    {
+                        TotalRounds = result.TotalRoundsVertigo,
+                        TotalWins = result.TotalWinsVertigo
+                    }
+                },
+                LastMatch = new LastMatch()
+                {
+                    CTWins = result.LastMatchCTWins,
+                    TWins = result.LastMatchTWins,
+                    Wins = result.LastMatchWins,
+                    Rounds = result.LastMatchRounds,
+                    MaxPlayers = result.LastMatchMaxPlayers,
+                    Kills = result.LastMatchKills,
+                    Deaths = result.LastMatchDeaths,
+                    Damage = result.LastMatchDamage,
+                    MVPs = result.LastMatchMVPs,
+                    FavoriteWeaponId = result.LastMatchFavoriteWeaponId,
+                    FavoriteWeaponShots = result.LastMatchFavoriteWeaponShots,
+                    FavoriteWeaponKills = result.LastMatchFavoriteWeaponKills,
+                    MoneySpent = result.LastMatchMoneySpent,
+                    Dominations = result.LastMatchDominations,
+                    Revenges = result.LastMatchRevenges,
+                    ContributionScore = result.LastMatchContributionScore,
+                    GunGameContributionScore = result.LastMatchGunGameContributionScore
+                }
+            };
         }
 
         #endregion
