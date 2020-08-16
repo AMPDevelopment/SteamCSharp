@@ -2,7 +2,7 @@
 using Newtonsoft.Json;
 using SteamCSharp.Utilities.JsonConverters;
 
-namespace SteamCSharp.Entities.Community.Statistics.User
+namespace SteamCSharp.Models.Community.Statistics.User
 {
     public class SteamUserAchievement
     {

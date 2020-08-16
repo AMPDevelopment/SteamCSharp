@@ -1,4 +1,4 @@
-﻿namespace SteamCSharp.Entities.Statistics.Users.Games.CSGO.Weapons
+﻿namespace SteamCSharp.Entities.Statistics.Users.Games.CounterStrike.Weapons
 {
     public enum WeaponType
     {

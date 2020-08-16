@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace SteamCSharp.Entities.Community
+namespace SteamCSharp.Models.Community
 {
     public class SteamVanity
     {

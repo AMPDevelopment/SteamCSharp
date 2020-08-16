@@ -4,7 +4,7 @@ using Newtonsoft.Json;
 using SteamCSharp.Enums;
 using SteamCSharp.Utilities.JsonConverters;
 
-namespace SteamCSharp.Entities.Community
+namespace SteamCSharp.Models.Community
 {
     public class SteamUser
     {

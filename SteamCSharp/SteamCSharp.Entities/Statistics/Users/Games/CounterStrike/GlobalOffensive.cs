@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
-using SteamCSharp.Entities.Statistics.Users.Games.CSGO.Maps;
-using SteamCSharp.Entities.Statistics.Users.Games.CSGO.Weapons;
+using SteamCSharp.Entities.Statistics.Users.Games.CounterStrike.Maps;
+using SteamCSharp.Entities.Statistics.Users.Games.CounterStrike.Weapons;
 
-namespace SteamCSharp.Entities.Statistics.Users.Games.CSGO
+namespace SteamCSharp.Entities.Statistics.Users.Games.CounterStrike
 {
-    public class CounterStrikeGlobalOffensive
+    public class GlobalOffensive
     {
         public int TotalKills { get; set; }
         public int TotalKillsHeadshot { get; set; }
@@ -20,6 +20,12 @@ namespace SteamCSharp.Entities.Statistics.Users.Games.CSGO
         public double Accuracy { get; set; }
         public double HeadshotAccuracy { get; set; }
         public int TotalTimePlayed { get; set; }
+        public int TotalMatchesWon { get; set; }
+        public int TotalMatchesPlayed { get; set; }
+        public double MatchesWinPercentage { get; set; }
+        public int TotalGunGameMatchesWon { get; set; }
+        public int TotalGunGameMatchesPlayed { get; set; }
+        public double GunGameMatchesWinPercentage { get; set; }
         public int TotalWeaponsDonated { get; set; }
         public int TotalBrokenWindows { get; set; }
         public int TotalDominations { get; set; }
@@ -33,6 +39,14 @@ namespace SteamCSharp.Entities.Statistics.Users.Games.CSGO
         public int TotalRescuedHostages { get; set; }
         public int TotalRoundsPlayed { get; set; }
         public int TotalMVPs { get; set; }
+        public int TotalContributionScore { get; set; }
+        public int TotalGunGameContributionScore { get; set; }
+        public int TotalGunGameRoundsWon { get; set; }
+        public int TotalGunGameRoundsPlayed { get; set; }
+        // Todo: total_progressive_matches_won
+        // Todo: total_TR_planted_bombs
+        // Todo: total_TR_defused_bombs
+        // Todo: total_trbomb_matches_won
         public List<Weapon> Weapons { get; set; }
         public List<Map> Maps { get; set; }
         public LastMatch LastMatch { get; set; }

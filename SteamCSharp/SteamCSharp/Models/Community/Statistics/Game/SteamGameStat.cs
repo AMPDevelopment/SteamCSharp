@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace SteamCSharp.Entities.Community.Statistics.Game
+namespace SteamCSharp.Models.Community.Statistics.Game
 {
     public class SteamGameStat
     {

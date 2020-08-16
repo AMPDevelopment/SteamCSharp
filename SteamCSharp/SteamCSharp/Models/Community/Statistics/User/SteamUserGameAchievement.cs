@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Newtonsoft.Json;
 
-namespace SteamCSharp.Entities.Community.Statistics.User
+namespace SteamCSharp.Models.Community.Statistics.User
 {
     public class SteamUserGameAchievementSummary
     {

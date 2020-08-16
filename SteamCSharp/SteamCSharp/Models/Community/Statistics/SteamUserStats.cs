@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Newtonsoft.Json;
 
-namespace SteamCSharp.Entities.Community.Statistics
+namespace SteamCSharp.Models.Community.Statistics
 {
     public class SteamUserStat
     {
@@ -9,10 +9,10 @@ namespace SteamCSharp.Entities.Community.Statistics
         public string Name { get; set; }
 
         [JsonProperty("value", NullValueHandling = NullValueHandling.Ignore)]
-        public double Value { get; set; }
+        public int Value { get; set; }
     }
 
-    public class SteamPlayerAchievement
+    public class SteamUserAchievement
     {
         [JsonProperty("name", NullValueHandling = NullValueHandling.Ignore)]
         public string Name { get; set; }
@@ -21,7 +21,7 @@ namespace SteamCSharp.Entities.Community.Statistics
         public int Achieved { get; set; }
     }
 
-    public class SteamPlayerStatsForGameResult
+    public class SteamUserStatsForGameResult
     {
         [JsonProperty("steamID", NullValueHandling = NullValueHandling.Ignore)]
         public string SteamId { get; set; }
@@ -33,12 +33,12 @@ namespace SteamCSharp.Entities.Community.Statistics
         public IList<SteamUserStat> Stats { get; set; }
 
         [JsonProperty("achievements", NullValueHandling = NullValueHandling.Ignore)]
-        public IList<SteamPlayerAchievement> Achievements { get; set; }
+        public IList<SteamUserAchievement> Achievements { get; set; }
     }
 
-    internal class SteamPlayerStatsForGameResultResponse
+    internal class SteamUserStatsForGameResponse
     {
         [JsonProperty("playerstats", NullValueHandling = NullValueHandling.Ignore)]
-        public SteamPlayerStatsForGameResult Result { get; set; }
+        public SteamUserStatsForGameResult Result { get; set; }
     }
 }

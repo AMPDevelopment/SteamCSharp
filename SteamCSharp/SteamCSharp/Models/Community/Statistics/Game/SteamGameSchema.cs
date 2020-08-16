@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Newtonsoft.Json;
 
-namespace SteamCSharp.Entities.Community.Statistics.Game
+namespace SteamCSharp.Models.Community.Statistics.Game
 {
     public class SteamGameSchema
     {

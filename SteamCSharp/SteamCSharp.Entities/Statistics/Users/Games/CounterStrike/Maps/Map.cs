@@ -1,4 +1,4 @@
-﻿namespace SteamCSharp.Entities.Statistics.Users.Games.CSGO.Maps
+﻿namespace SteamCSharp.Entities.Statistics.Users.Games.CounterStrike.Maps
 {
     public class Map
     {

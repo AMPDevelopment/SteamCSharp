@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Newtonsoft.Json;
 using SteamCSharp.Utilities.JsonConverters;
 
-namespace SteamCSharp.Entities.Community
+namespace SteamCSharp.Models.Community
 {
     public class SteamFriend
     {
