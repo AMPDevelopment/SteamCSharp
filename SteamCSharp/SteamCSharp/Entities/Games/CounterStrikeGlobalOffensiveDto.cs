@@ -39,7 +39,7 @@ namespace SteamCSharp.Entities.Games
         public int TotalKillsHeGrenade { get; set; }
 
         [JsonProperty("total_kills_glock", NullValueHandling = NullValueHandling.Ignore)]
-        public int TotalKillsGloke { get; set; }
+        public int TotalKillsGlock { get; set; }
 
         [JsonProperty("total_kills_deagle", NullValueHandling = NullValueHandling.Ignore)]
         public int TotalKillsDeagle { get; set; }
@@ -436,13 +436,13 @@ namespace SteamCSharp.Entities.Games
         public int TotalShotsP250 { get; set; }
 
         [JsonProperty("total_kills_sg556", NullValueHandling = NullValueHandling.Ignore)]
-        public int TotalKillsSG556 { get; set; }
+        public int TotalKillsSG553 { get; set; }
 
         [JsonProperty("total_shots_sg556", NullValueHandling = NullValueHandling.Ignore)]
-        public int TotalShotsSG556 { get; set; }
+        public int TotalShotsSG553 { get; set; }
 
         [JsonProperty("total_hits_sg556", NullValueHandling = NullValueHandling.Ignore)]
-        public int TotalHitsSG556 { get; set; }
+        public int TotalHitsSG553 { get; set; }
 
         [JsonProperty("total_hits_scar20", NullValueHandling = NullValueHandling.Ignore)]
         public int TotalHitsSCAR20 { get; set; }
@@ -526,7 +526,7 @@ namespace SteamCSharp.Entities.Games
         public int TotalHitsTec9 { get; set; }
 
         [JsonProperty("total_shots_mag7", NullValueHandling = NullValueHandling.Ignore)]
-        public int TotalTotalMAG7Kills { get; set; }
+        public int TotalShotsMAG7 { get; set; }
 
         [JsonProperty("total_hits_mag7", NullValueHandling = NullValueHandling.Ignore)]
         public int TotalHitsMAG7 { get; set; }

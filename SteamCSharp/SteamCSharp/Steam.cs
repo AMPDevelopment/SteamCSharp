@@ -12,6 +12,7 @@ using SteamCSharp.Entities.Community.Statistics.User;
 using SteamCSharp.Entities.Games;
 using SteamCSharp.Entities.Statistics.Users.Games.CSGO;
 using SteamCSharp.Entities.Statistics.Users.Games.CSGO.Maps;
+using SteamCSharp.Entities.Statistics.Users.Games.CSGO.Weapons;
 
 namespace SteamCSharp
 {
@@ -42,7 +43,7 @@ namespace SteamCSharp
         private const string GetPlayerBansUrl = "GetPlayerBans";
         private const string ResolveVanityUrl = "ResolveVanityURL";
         private const string GetSchemaForGame = "GetSchemaForGame";
-        
+
         // Todo
         private const string GetGlobalAchievementPercentagesForApp = "GetGlobalAchievementPercentagesForApp";
         private const string GetNumberOfCurrentPlayers = "GetNumberOfCurrentPlayers";
@@ -169,6 +170,11 @@ namespace SteamCSharp
             return JsonConvert.DeserializeObject<SteamPlayerStatsForGameResultResponse>(request).Result;
         }
 
+        /// <summary>
+        /// Gets the CS:GO statistics of the Steam user.
+        /// </summary>
+        /// <param name="steamId">Steam ID 64</param>
+        /// <returns></returns>
         public async Task<CounterStrikeGlobalOffensive> GetSteamUserStatsForCounterStrikeGlobalOffensiveAsync(ulong steamId)
         {
             var parameters = $"{AppIdParameter}730{SteamIdParameter}{steamId}";
@@ -176,120 +182,474 @@ namespace SteamCSharp
             var result = JsonConvert.DeserializeObject<CounterStrikeGlobalOffensiveDto>(request);
             return new CounterStrikeGlobalOffensive()
             {
+                TotalKills = result.TotalKills,
+                TotalKillsHeadshot = result.TotalKillsHeadshot,
+                TotalKillsKnifeFight = result.TotalKillsKnifeFight,
+                TotalKillsPistolRound = result.TotalKillsPistolRound,
+                TotalKillsEnemyWeapon = result.TotalKillsEnemyWeapon,
+                TotalKillsEnemyBlinded = result.TotalKillsEnemyBlinded,
+                KillDeathRatio = result.TotalKills / result.TotalDeaths,
+                TotalDeaths = result.TotalDeaths,
+                TotalShotsHit = result.TotalShotsHit,
+                TotalShotsFired = result.TotalShotsFired,
+                Accuracy = result.TotalShotsHit / result.TotalShotsFired * 100,
+                HeadshotAccuracy = result.TotalKillsHeadshot / result.TotalKills * 100,
+                TotalTimePlayed = result.TotalTimePlayed,
+                TotalWeaponsDonated = result.TotalWeaponsDonated,
+                TotalBrokenWindows = result.TotalBrokenWindows,
+                TotalDominations = result.TotalDominations,
+                TotalDominationOverkills = result.TotalDominationOverkills,
+                TotalRevenges = result.TotalRevenges,
+                TotalPlantedBombs = result.TotalPlantedBombs,
+                TotalDefusedBombs = result.TotalDefusedBombs,
+                TotalWins = result.TotalWins,
+                TotalDamageDone = result.TotalDamageDone,
+                TotalMoneyEarned = result.TotalMoneyEarned,
+                TotalRescuedHostages = result.TotalRescuedHostages,
+                TotalRoundsPlayed = result.TotalRoundsPlayed,
+                TotalMVPs = result.TotalMVPs,
+                Weapons = new List<Weapon>()
+                {
+                    new Weapon()
+                    {
+                        Name = "AK-47",
+                        Kills = result.TotalKillsAK47,
+                        Shots = result.TotalShotsAK47,
+                        Hits = result.TotalHitsAK47,
+                        Accuracy = result.TotalHitsAK47 / result.TotalShotsAK47 * 100,
+                        Type = WeaponType.Rifle
+                    },
+                    new Weapon()
+                    {
+                        Name = "AUG",
+                        Kills = result.TotalKillsAUG,
+                        Shots = result.TotalShotsAUG,
+                        Hits = result.TotalHitsAUG,
+                        Accuracy = result.TotalHitsAUG / result.TotalShotsAUG * 100,
+                        Type = WeaponType.Rifle
+                    },
+                    new Weapon()
+                    {
+                        Name = "FAMAS",
+                        Kills = result.TotalKillsFAMAS,
+                        Shots = result.TotalShotsFAMAS,
+                        Hits = result.TotalHitsFAMAS,
+                        Accuracy = result.TotalHitsFAMAS / result.TotalShotsFAMAS * 100,
+                        Type = WeaponType.Rifle
+                    },
+                    new Weapon()
+                    {
+                        Name = "Galil AR",
+                        Kills = result.TotalKillsGalilAR,
+                        Shots = result.TotalShotsGalilAR,
+                        Hits = result.TotalHitsGalilAR,
+                        Accuracy = result.TotalHitsGalilAR / result.TotalShotsGalilAR * 100,
+                        Type = WeaponType.Rifle
+                    },
+                    new Weapon()
+                    {
+                        Name = "M4A1-S and M4A4",
+                        Kills = result.TotalKillsM4A1,
+                        Shots = result.TotalShotsM4A1,
+                        Hits = result.TotalHitsM4A1,
+                        Accuracy = result.TotalHitsM4A1 / result.TotalShotsM4A1 * 100,
+                        Type = WeaponType.Rifle
+                    },
+                    new Weapon()
+                    {
+                        Name = "SG 553",
+                        Kills = result.TotalKillsSG553,
+                        Shots = result.TotalShotsSG553,
+                        Hits = result.TotalHitsSG553,
+                        Accuracy = result.TotalHitsSG553 / result.TotalShotsSG553 * 100,
+                        Type = WeaponType.Rifle
+                    },
+                    new Weapon()
+                    {
+                        Name = "AWP",
+                        Kills = result.TotalKillsAWP,
+                        Shots = result.TotalShotsAWP,
+                        Hits = result.TotalHitsAWP,
+                        Accuracy = result.TotalHitsAWP / result.TotalShotsAWP * 100,
+                        Type = WeaponType.SniperRifle
+                    },
+                    new Weapon()
+                    {
+                        Name = "G3SG1",
+                        Kills = result.TotalKillsG3SG1,
+                        Shots = result.TotalShotsG3SG1,
+                        Hits = result.TotalHitsG3SG1,
+                        Accuracy = result.TotalHitsG3SG1 / result.TotalShotsG3SG1 * 100,
+                        Type = WeaponType.SniperRifle
+                    },
+                    new Weapon()
+                    {
+                        Name = "SCAR-20",
+                        Kills = result.TotalKillsSCAR20,
+                        Shots = result.TotalShotsSCAR20,
+                        Hits = result.TotalHitsSCAR20,
+                        Accuracy = result.TotalHitsSCAR20 / result.TotalShotsSCAR20 * 100,
+                        Type = WeaponType.SniperRifle
+                    },
+                    new Weapon()
+                    {
+                        Name = "SSG 08",
+                        Kills = result.TotalKillsSSG08,
+                        Shots = result.TotalShotsSSG08,
+                        Hits = result.TotalHitsSSG08,
+                        Accuracy = result.TotalHitsSSG08 / result.TotalShotsSSG08 * 100,
+                        Type = WeaponType.SniperRifle
+                    },
+                    new Weapon()
+                    {
+                        Name = "MAC-10",
+                        Kills = result.TotalKillsMAC10,
+                        Shots = result.TotalShotsMAC10,
+                        Hits = result.TotalHitsMAC10,
+                        Accuracy = result.TotalHitsMAC10 / result.TotalShotsMAC10 * 100,
+                        Type = WeaponType.SMG,
+                    },
+                    // MP5-SD
+                    new Weapon()
+                    {
+                        Name = "MP7",
+                        Kills = result.TotalKillsMP7,
+                        Shots = result.TotalShotsMP7,
+                        Hits = result.TotalHitsMP7,
+                        Accuracy = result.TotalHitsMP7 / result.TotalShotsMP7 * 100,
+                        Type = WeaponType.SMG
+                    },
+                    new Weapon()
+                    {
+                        Name = "MP9",
+                        Kills = result.TotalKillsMP9,
+                        Shots = result.TotalShotsMP9,
+                        Hits = result.TotalHitsMP9,
+                        Accuracy = result.TotalHitsMP9 / result.TotalShotsMP9 * 100,
+                        Type = WeaponType.SMG
+                    },
+                    new Weapon()
+                    {
+                        Name = "P90",
+                        Kills = result.TotalKillsP90,
+                        Shots = result.TotalShotsP90,
+                        Hits = result.TotalHitsP90,
+                        Accuracy = result.TotalHitsP90 / result.TotalShotsP90 * 100,
+                        Type = WeaponType.SMG
+                    },
+                    new Weapon()
+                    {
+                        Name = "PP-Bizon",
+                        Kills = result.TotalKillsPPBizon,
+                        Shots = result.TotalShotsPPBizon,
+                        Hits = result.TotalHitsPPBizon,
+                        Accuracy = result.TotalHitsPPBizon / result.TotalShotsPPBizon * 100,
+                        Type = WeaponType.SMG
+                    },
+                    new Weapon()
+                    {
+                        Name = "UMP-45",
+                        Kills = result.TotalKillsUMP45,
+                        Shots = result.TotalShotsUMP45,
+                        Hits = result.TotalHitsUMP45,
+                        Accuracy = result.TotalHitsUMP45 / result.TotalShotsUMP45 * 100,
+                        Type = WeaponType.SMG
+                    },
+                    new Weapon()
+                    {
+                        Name = "M249",
+                        Kills = result.TotalKillsM249,
+                        Shots = result.TotalShotsM249,
+                        Hits = result.TotalHitsM249,
+                        Accuracy = result.TotalHitsM249 / result.TotalShotsM249 * 100,
+                        Type = WeaponType.Heavy
+                    },
+                    new Weapon()
+                    {
+                        Name = "Negev",
+                        Kills = result.TotalKillsNegev,
+                        Shots = result.TotalShotsNegev,
+                        Hits = result.TotalHitsNegev,
+                        Accuracy = result.TotalHitsNegev / result.TotalShotsNegev * 100,
+                        Type = WeaponType.Heavy
+                    },
+                    new Weapon()
+                    {
+                        Name = "MAG-7",
+                        Kills = result.TotalKillsMAG7,
+                        Shots = result.TotalShotsMAG7,
+                        Hits = result.TotalHitsMAG7,
+                        Accuracy = result.TotalHitsMAG7 / result.TotalShotsMAG7 * 100,
+                        Type = WeaponType.Shotgun
+                    },
+                    new Weapon()
+                    {
+                        Name = "Nova",
+                        Kills = result.TotalKillsNova,
+                        Shots = result.TotalShotsNova,
+                        Hits = result.TotalHitsNova,
+                        Accuracy = result.TotalHitsNova / result.TotalShotsNova * 100,
+                        Type = WeaponType.Shotgun
+                    },
+                    new Weapon()
+                    {
+                        Name = "Sawed-Off",
+                        Kills = result.TotalKillsSawedOff,
+                        Shots = result.TotalShotsSawedOff,
+                        Hits = result.TotalHitsSawedOff,
+                        Accuracy = result.TotalHitsSawedOff / result.TotalShotsSawedOff * 100,
+                        Type = WeaponType.Shotgun
+                    },
+                    new Weapon()
+                    {
+                        Name = "XM1014",
+                        Kills = result.TotalKillsXM1014,
+                        Shots = result.TotalShotsXM1014,
+                        Hits = result.TotalHitsXM1014,
+                        Accuracy = result.TotalHitsXM1014 / result.TotalShotsXM1014 * 100,
+                        Type = WeaponType.Shotgun
+                    },
+                    new Weapon()
+                    {
+                        Name = "Desert Eagle",
+                        Kills = result.TotalKillsDeagle,
+                        Shots = result.TotalShotsDeagle,
+                        Hits = result.TotalHitsDeagle,
+                        Accuracy = result.TotalHitsDeagle / result.TotalShotsDeagle * 100,
+                        Type = WeaponType.Pistol
+                    },
+                    new Weapon()
+                    {
+                        Name = "Dual Berettas",
+                        Kills = result.TotalKillsDualElite,
+                        Shots = result.TotalShotsDualElite,
+                        Hits = result.TotalHitsDualElite,
+                        Accuracy = result.TotalHitsDualElite / result.TotalShotsDualElite * 100,
+                        Type = WeaponType.Pistol
+                    },
+                    new Weapon()
+                    {
+                        Name = "Five-SeveN",
+                        Kills = result.TotalKillsFiveSeven,
+                        Shots = result.TotalShotsFiveSeven,
+                        Hits = result.TotalHitsFiveSeven,
+                        Accuracy = result.TotalHitsFiveSeven / result.TotalShotsFiveSeven * 100,
+                        Type = WeaponType.Pistol
+                    },
+                    new Weapon()
+                    {
+                        Name = "Glock-18",
+                        Kills = result.TotalKillsGlock,
+                        Shots = result.TotalShotsGlock,
+                        Hits = result.TotalHitsGlock,
+                        Accuracy = result.TotalHitsGlock / result.TotalShotsGlock * 100,
+                        Type = WeaponType.Pistol
+                    },
+                    new Weapon()
+                    {
+                        Name = "USP-S and HKP2000",
+                        Kills = result.TotalKillsHKP2000,
+                        Shots = result.TotalShotsHKP2000,
+                        Hits = result.TotalHitsHKP2000,
+                        Accuracy = result.TotalHitsHKP2000 / result.TotalShotsHKP2000 * 100,
+                        Type = WeaponType.Pistol
+                    },
+                    new Weapon()
+                    {
+                        Name = "P250",
+                        Kills = result.TotalKillsP250,
+                        Shots = result.TotalShotsP250,
+                        Hits = result.TotalHitsP250,
+                        Accuracy = result.TotalHitsP250 / result.TotalShotsP250 * 100,
+                        Type = WeaponType.Pistol
+                    },
+                    new Weapon()
+                    {
+                        Name = "Tec-9",
+                        Kills = result.TotalKillsTec9,
+                        Shots = result.TotalShotsTec9,
+                        Hits = result.TotalHitsTec9,
+                        Accuracy = result.TotalHitsTec9 / result.TotalShotsTec9 * 100,
+                        Type = WeaponType.Pistol
+                    },
+                    new Weapon()
+                    {
+                        Name = "HE Grenade",
+                        Kills = result.TotalKillsHeGrenade,
+                        Shots = 0,
+                        Hits = 0,
+                        Accuracy = 0,
+                        Type = WeaponType.Other
+                    },
+                    new Weapon()
+                    {
+                        Name = "Decoy",
+                        Kills = result.TotalKillsDecoy,
+                        Shots = 0,
+                        Hits = 0,
+                        Accuracy = 0,
+                        Type = WeaponType.Other
+                    },
+                    new Weapon()
+                    {
+                        Name = "Molotov",
+                        Kills = result.TotalKillsMolotov,
+                        Shots = 0,
+                        Hits = 0,
+                        Accuracy = 0,
+                        Type = WeaponType.Other
+                    },
+                    new Weapon()
+                    {
+                        Name = "Zeus x27",
+                        Kills = result.TotalKillsTaser,
+                        Shots = result.TotalShotsTaser,
+                        Hits = 0,
+                        Accuracy = 0,
+                        Type = WeaponType.Other
+                    },
+                    new Weapon()
+                    {
+                        Name = "Knife",
+                        Kills = result.TotalKillsKnife,
+                        Shots = 0,
+                        Hits = 0,
+                        Accuracy = 0,
+                        Type = WeaponType.Melee
+                    },
+                },
                 Maps = new List<Map>
                 {
-                    new Dust2()
+                    new Map()
                     {
+                        Name = "de_dust2",
                         TotalRounds = result.TotalRoundsDust2,
                         TotalWins = result.TotalWinsDust2
                     },
-                    new Dust()
+                    new Map()
                     {
+                        Name = "de_dust",
                         TotalRounds = result.TotalRoundsDust,
                         TotalWins = result.TotalWinsDust
                     },
-                    new Assault()
+                    new Map()
                     {
+                        Name = "cs_assault",
                         TotalRounds = result.TotalRoundsAssault,
                         TotalWins = result.TotalWinsAssault
                     },
-                    new Aztec()
+                    new Map()
                     {
+                        Name = "de_aztec",
                         TotalRounds = result.TotalRoundsAztec,
                         TotalWins = result.TotalWinsAztec
                     },
-                    new Cobblestone()
+                    new Map()
                     {
+                        Name = "de_cbble",
                         TotalRounds = result.TotalRoundsCobblestone,
                         TotalWins = result.TotalWinsCobblestone
                     },
-                    new Inferno()
+                    new Map()
                     {
+                        Name = "de_inferno",
                         TotalRounds = result.TotalRoundsInferno,
                         TotalWins = result.TotalWinsInferno
                     },
-                    new Italy()
+                    new Map()
                     {
+                        Name = "cs_italy",
                         TotalRounds = result.TotalRoundsItaly,
                         TotalWins = result.TotalWinsItaly
                     },
-                    new Nuke()
+                    new Map()
                     {
+                        Name = "de_nuke",
                         TotalRounds = result.TotalRoundsNuke,
                         TotalWins = result.TotalWinsNuke
                     },
-                    new Office()
+                    new Map()
                     {
+                        Name = "cs_office",
                         TotalRounds = result.TotalRoundsOffice,
                         TotalWins = result.TotalWinsOffice
                     },
-                    new Train()
+                    new Map()
                     {
+                        Name = "de_train",
                         TotalRounds = result.TotalRoundsTrain,
-                        TotalWins = result.TotalWinsTrain,
-                        MatchesWon = result.TotalMatchesWonTrain
+                        TotalWins = result.TotalWinsTrain
                     },
-                    new Lake()
+                    new Map()
                     {
+                        Name = "de_lake",
                         TotalRounds = result.TotalRoundsLake,
-                        TotalWins = result.TotalWinsLake,
-                        MatchesWon = result.TotalMatchesWonLake
+                        TotalWins = result.TotalWinsLake
                     },
-                    new Safehouse()
+                    new Map()
                     {
+                        Name = "de_safehouse",
                         TotalRounds = result.TotalRoundsSafehouse,
-                        TotalWins = result.TotalWinsSafehouse,
-                        MatchesWon = result.TotalMatchesWonSafehouse
+                        TotalWins = result.TotalWinsSafehouse
                     },
-                    new Sugarcane()
+                    new Map()
                     {
+                        Name = "de_sugarcane",
                         TotalRounds = result.TotalRoundsSugarcane,
-                        TotalWins = result.TotalWinsSugarcane,
-                        MatchesWon = result.TotalMatchesWonSugarcane
+                        TotalWins = result.TotalWinsSugarcane
                     },
-                    new StMarc()
+                    new Map()
                     {
+                        Name = "de_stmarc",
                         TotalRounds = result.TotalRoundsStMarc,
-                        TotalWins = result.TotalWinsStMarc,
-                        MatchesWon = result.TotalMatchesWonShortTrain
+                        TotalWins = result.TotalWinsStMarc
                     },
-                    new Bank()
+                    new Map()
                     {
+                        Name = "de_bank",
                         TotalRounds = result.TotalRoundsBank,
-                        TotalWins = result.TotalWinsBank,
-                        MatchesWon = result.TotalMatchesWonBank
+                        TotalWins = result.TotalWinsBank
                     },
-                    new Shorttrain()
+                    new Map()
                     {
+                        Name = "de_shorttrain",
                         TotalRounds = result.TotalRoundsShortTrain,
-                        TotalWins = result.TotalWinsShortTrain,
-                        MatchesWon = result.TotalMatchesWonShortTrain
+                        TotalWins = result.TotalWinsShortTrain
                     },
-                    new Shoots()
+                    new Map()
                     {
+                        Name = "ar_shoots",
                         TotalRounds = result.TotalRoundsShoots,
-                        TotalWins = result.TotalWinsShoots,
-                        MatchesWon = result.TotalMatchesWonShoots
+                        TotalWins = result.TotalWinsShoots
                     },
-                    new Baggage()
+                    new Map()
                     {
+                        Name = "ar_baggage",
                         TotalRounds = result.TotalRoundsBaggage,
-                        TotalWins = result.TotalWinsBaggage,
-                        MatchesWon = result.TotalMatchesWonBaggage
+                        TotalWins = result.TotalWinsBaggage
                     },
-                    new House()
+                    new Map()
                     {
+                        Name = "de_house",
                         TotalWins = result.TotalWinsHouse
                     },
-                    new Monastery()
+                    new Map()
                     {
+                        Name = "ar_monastery",
                         TotalRounds = result.TotalRoundsMonastery,
                         TotalWins = result.TotalWinsMonastery
                     },
-                    new Vertigo()
+                    new Map()
                     {
+                        Name = "de_vertigo",
                         TotalRounds = result.TotalRoundsVertigo,
                         TotalWins = result.TotalWinsVertigo
+                    }, 
+                    new Map()
+                    {
+                        Name = "cs_militia",
+                        TotalRounds = result.TotalRoundsMilitia,
+                        TotalWins = result.TotalWinsMilitia
                     }
                 },
                 LastMatch = new LastMatch()

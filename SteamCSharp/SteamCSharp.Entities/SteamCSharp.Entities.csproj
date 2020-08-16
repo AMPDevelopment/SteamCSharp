@@ -5,7 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Games\CounterStrikeGlobalOffensive\" />
     <Folder Include="Statistics\Servers\" />
   </ItemGroup>
 
