@@ -8,14 +8,14 @@
     <RepositoryUrl>https://github.com/AMPDevelopment/SteamCSharp</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>0.1.3</Version>
+    <Version>0.1.5</Version>
     <PackageProjectUrl>https://github.com/AMPDevelopment/SteamCSharp</PackageProjectUrl>
     <Copyright>AMP Development</Copyright>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <Description>Unofficial Steam API Library</Description>
     <PackageReleaseNotes></PackageReleaseNotes>
-    <AssemblyVersion>0.1.3.0</AssemblyVersion>
-    <FileVersion>0.1.3.0</FileVersion>
+    <AssemblyVersion>0.1.5.0</AssemblyVersion>
+    <FileVersion>0.1.5.0</FileVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">

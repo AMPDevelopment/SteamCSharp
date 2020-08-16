@@ -3,9 +3,9 @@
     public class Weapon
     {
         public string Name { get; set; }
-        public int Kills { get; set; }
-        public int? Shots { get; set; }
-        public int? Hits { get; set; }
+        public double Kills { get; set; }
+        public double? Shots { get; set; }
+        public double? Hits { get; set; }
         public double? Accuracy { get; set; }
         public WeaponType Type { get; set; }
     }

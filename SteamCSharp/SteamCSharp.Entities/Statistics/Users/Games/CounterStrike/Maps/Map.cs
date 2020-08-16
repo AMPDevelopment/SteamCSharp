@@ -3,7 +3,7 @@
     public class Map
     {
         public string Name { get; set; }
-        public int TotalRounds { get; set; }
-        public int TotalWins { get; set; }
+        public double TotalRounds { get; set; }
+        public double TotalWins { get; set; }
     }
 }

@@ -2,25 +2,25 @@
 {
     public class LastMatch
     {
-        public int TWins { get; set; }
-        public int CTWins { get; set; }
-        public int Wins { get; set; }
-        public int Rounds { get; set; }
-        public int MaxPlayers { get; set; }
-        public int Kills { get; set; }
-        public int Deaths { get; set; }
+        public double TWins { get; set; }
+        public double CTWins { get; set; }
+        public double Wins { get; set; }
+        public double Rounds { get; set; }
+        public double MaxPlayers { get; set; }
+        public double Kills { get; set; }
+        public double Deaths { get; set; }
         public double KillDeathRatio { get; set; }
-        public int Damage { get; set; }
-        public int MVPs { get; set; }
-        public int FavoriteWeaponId { get; set; }
-        public int FavoriteWeaponHits { get; set; }
-        public int FavoriteWeaponShots { get; set; }
-        public int FavoriteWeaponKills { get; set; }
+        public double Damage { get; set; }
+        public double MVPs { get; set; }
+        public double FavoriteWeaponId { get; set; }
+        public double FavoriteWeaponHits { get; set; }
+        public double FavoriteWeaponShots { get; set; }
+        public double FavoriteWeaponKills { get; set; }
         public double FavoriteWeaponAccuracy { get; set; }
-        public int MoneySpent { get; set; }
-        public int Dominations { get; set; }
-        public int Revenges { get; set; }
-        public int ContributionScore { get; set; }
-        public int GunGameContributionScore { get; set; }
+        public double MoneySpent { get; set; }
+        public double Dominations { get; set; }
+        public double Revenges { get; set; }
+        public double ContributionScore { get; set; }
+        public double GunGameContributionScore { get; set; }
     }
 }

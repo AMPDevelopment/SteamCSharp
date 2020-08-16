@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>0.1.0</Version>
+    <Version>0.1.3</Version>
     <Authors>Antoine Martins Pacheco</Authors>
     <Company>AMP Development</Company>
     <Description>Entities for the unofficial Steam API Library</Description>
@@ -11,7 +11,7 @@
     <PackageProjectUrl>https://github.com/AMPDevelopment/SteamCSharp</PackageProjectUrl>
     <RepositoryUrl>https://github.com/AMPDevelopment/SteamCSharp</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <PackageReleaseNotes>Initial release</PackageReleaseNotes>
+    <PackageReleaseNotes></PackageReleaseNotes>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
@@ -19,10 +19,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Statistics\Servers\" />
-	  <Folder Include="Users\Games\CounterStrike" />
-	  <Folder Include="Users\Games\CounterStrike\Maps" />
-	  <Folder Include="Users\Games\CounterStrike\Weapons" />
+    <Compile Remove="Users\**" />
+    <EmbeddedResource Remove="Users\**" />
+    <None Remove="Users\**" />
   </ItemGroup>
 
 </Project>

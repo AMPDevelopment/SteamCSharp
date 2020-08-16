@@ -9,7 +9,7 @@ namespace SteamCSharp.Models.Community.Statistics
         public string Name { get; set; }
 
         [JsonProperty("value", NullValueHandling = NullValueHandling.Ignore)]
-        public int Value { get; set; }
+        public double Value { get; set; }
     }
 
     public class SteamUserAchievement
