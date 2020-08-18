@@ -1,7 +1,9 @@
 # SteamCSharp
-
-[![Support Server Invite](https://img.shields.io/discord/695727580950691960.svg?color=7289da&label=AMP%20Development&logo=discord&style=flat-square)](https://discord.gg/WgUDVAk)
-[![NuGet version (SteamCSharp)](https://img.shields.io/nuget/v/SteamCSharp.svg?style=flat-square)](https://www.nuget.org/packages/SteamCSharp/)
+| | Status |
+| --- | --- |
+| Build | soonTM |
+| Support | [![Discord](https://img.shields.io/discord/695727580950691960?color=7289da&label=AMP%20Development&logo=discord&style=flat-square)](https://discord.gg/WgUDVAk) |
+| NuGet | [![Nuget](https://img.shields.io/nuget/v/SteamCSharp?label=SteamCSharp&logo=NuGet&logoColor=white&style=flat-square)](https://www.nuget.org/packages/SteamCSharp/) [![Nuget](https://img.shields.io/nuget/dt/SteamCSharp?color=blue&logo=NuGet&logoColor=white&style=flat-square)](https://www.nuget.org/packages/SteamCSharp/) |
 
 SteamCSharp is a easy to use API Wrapper for any developement.  
 The aim of this project is to simplify the complexity of the [Steam Web API](https://partner.steamgames.com/doc/webapi).
